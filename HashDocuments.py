@@ -72,7 +72,7 @@ def main (config_file):
             # Set the immutable flag on the file and set them read only
             flags = os.stat(file_path).st_flags
             os.chflags(file_path, flags | stat.UF_IMMUTABLE)
-            os.chmod(filename, S_IREAD|S_IRGRP|S_IROTH)
+            os.chmod(file_path, S_IREAD|S_IRGRP|S_IROTH)
 
             newFiles += 1
     print('Done!')
@@ -80,8 +80,6 @@ def main (config_file):
 
 
 if __name__ == "__main__":
-    filename = "/Users/toby/Library/Mobile Documents/com~apple~CloudDocs/Garten Kopie.png"
-
     parser = argparse.ArgumentParser(
         description="Arguments for hash documents"
     )
